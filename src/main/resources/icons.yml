@@ -125,7 +125,7 @@ List:
   Potion_Green:
     Icon:
     - type:POTION
-    - potion:JUMP#false#false
+    - potion:LEAPING
     - itemflag:HIDE_POTION_EFFECTS
     - 'name:&e&l%playershopname%'
     Permission: ''
@@ -133,7 +133,7 @@ List:
   Potion_Purple:
     Icon:
     - type:POTION
-    - potion:INSTANT_DAMAGE#false#false
+    - potion:HARMING
     - itemflag:HIDE_POTION_EFFECTS
     - 'name:&e&l%playershopname%'
     Permission: ''
