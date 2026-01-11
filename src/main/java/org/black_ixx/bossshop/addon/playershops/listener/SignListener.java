@@ -1,9 +1,9 @@
 package org.black_ixx.bossshop.addon.playershops.listener;
 
+import me.thiagorigonatti.bossshop.NewSigns;
 import org.black_ixx.bossshop.addon.playershops.PlayerShops;
 import org.black_ixx.bossshop.managers.ClassManager;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -73,25 +73,17 @@ public class SignListener implements Listener {
 
         if (e.getClickedBlock() != null) {
             if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-
                 Block b = e.getClickedBlock();
-                if (b.getType() == Material.SIGN || b.getType() == Material.WALL_SIGN) {
-
-                    if (b.getState() instanceof Sign) {
-                        Sign s = (Sign) b.getState();
-
-                        String text = s.getLine(0).toLowerCase();
-                        if (text.endsWith(plugin.getSettings().getSignsTextPlayerShop().toLowerCase())) {
-                            plugin.getCommandManager().tryOpenShop(e.getPlayer(), ChatColor.stripColor(s.getLine(1)), true);
-                        } else if (text.endsWith(plugin.getSettings().getSignsTextShopListing().toLowerCase())) {
-                            plugin.getShopsManager().openShoplist(e.getPlayer());
-                        }
-
+                if (NewSigns.sign(b.getType()) && b.getState() instanceof Sign) {
+                    Sign s = (Sign) b.getState();
+                    String text = s.getLine(0).toLowerCase();
+                    if (text.endsWith(plugin.getSettings().getSignsTextPlayerShop().toLowerCase())) {
+                        plugin.getCommandManager().tryOpenShop(e.getPlayer(), ChatColor.stripColor(s.getLine(1)), true);
+                    } else if (text.endsWith(plugin.getSettings().getSignsTextShopListing().toLowerCase())) {
+                        plugin.getShopsManager().openShoplist(e.getPlayer());
                     }
                 }
             }
         }
     }
-
-
 }

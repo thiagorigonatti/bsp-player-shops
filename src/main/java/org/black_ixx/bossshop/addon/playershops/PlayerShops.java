@@ -98,7 +98,7 @@ public class PlayerShops extends BossShopAddonConfigurable {
 
     @Override
     public String getRequiredBossShopVersion() {
-        return "1.9.5";
+        return "0.0.1-RESCUED";
     }
 
     @Override

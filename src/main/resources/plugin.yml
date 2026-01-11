@@ -1,6 +1,6 @@
 name: PlayerShops
-version: ${project.version}
-api-version: 1.13
+version: $version
+api-version: 1.21
 description: BossShopPro Addon - Allow your players to create public GUI shops
 author: Black_ixx
 website: http://felix.neuby.de
